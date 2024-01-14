@@ -63,3 +63,20 @@ var maximumNumberOfStringPairs = function (words) {
         return reversed;
     }
 };
+//1844. Replace All Digits with Characters
+var replaceDigits = function (s) {
+
+    const shift = (char, num) => String.fromCharCode(char.charCodeAt(0) + Number(num));
+
+    let result = '';
+
+    for (let i = 0; i < s.length - 1; i += 2) {
+
+        let shifted = shift(s[i], s[i + 1]);
+
+        result += s[i] + (shifted ? shifted : '');
+    }
+    return s.length % 2 !== 0 ? result.concat(s.at(-1)) : result;
+};
+
+console.log(replaceDigits('a1b2c3d4e'));;
