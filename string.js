@@ -37,3 +37,29 @@ var toLowerCase = function (s) {
 
     return result;
 };
+
+//2744. Find Maximum Number of String Pairs
+var maximumNumberOfStringPairs = function (words) {
+
+    return words.reduce((acc, s, i) => {
+
+        if (i === words.length - 1) return acc;
+
+        for (let j = i + 1; j < words.length; j++) {
+
+            if (s === reverse(words[j])) acc++;
+        }
+        return acc;
+    }, 0);
+
+    function reverse(s) {
+
+        let reversed = '';
+
+        for (let i = s.length - 1; i >= 0; i--) {
+
+            reversed += s[i];
+        }
+        return reversed;
+    }
+};
