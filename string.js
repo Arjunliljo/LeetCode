@@ -21,8 +21,6 @@ var reverseString = function (s) {
 //709. To Lower Case
 var toLowerCase = function (s) {
 
-    //String.fromCharCode(char.charCodeAt(0) + 32)
-
     let result = '';
 
     for (let i = 0; i < s.length; i++) {
@@ -79,4 +77,31 @@ var replaceDigits = function (s) {
     return s.length % 2 !== 0 ? result.concat(s.at(-1)) : result;
 };
 
-console.log(replaceDigits('a1b2c3d4e'));;
+//console.log(replaceDigits('a1b2c3d4e'));
+
+//1309. Decrypt String from Alphabet to Integer Mapping
+var freqAlphabets = function (s) {
+
+    const decrypt = (val) => String.fromCharCode('a'.charCodeAt(0) + Number(val) - 1);
+
+    s = s.split('');
+
+    const ans = [];
+
+    for (let i = s.length - 1; i >= 0; i--) {
+
+        if (s[i] === '#') {
+
+            ans.unshift(s[i - 2] + s[i - 1]);
+
+            i -= 2;
+
+            continue;
+        }
+
+        ans.unshift(s[i]);
+    }
+    return ans.reduce((acc, val) => acc + decrypt(val), '');
+};
+
+console.log(freqAlphabets("10#11#12"))
