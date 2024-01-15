@@ -107,16 +107,29 @@ var freqAlphabets = function (s) {
 //console.log(freqAlphabets("10#11#12"))
 
 
-//2506. Count Pairs Of Similar Strings
+//944. Delete Columns to Make Sorted
+var minDeletionSize = function (strs) {
+    const createCol = (num) => {
+        let col = '';
+        for (let i = 0; i < strs.length; i++) {
+            col += strs[i][num];
+        }
+        return col;
+    }
 
-const words = ["aba", "aabb", "abcd", "bac", "aabc"];
+    const isSorted = (col) => {
+        for (let i = 0; i < col.length - 1; i++) {
+            if (col[i] > col[i + 1])
+                return false;
+        }
+        return true;
+    }
 
-var similarPairs = function (words) {
+    const columns = strs[0].length;
 
-    words = words.map(word => [...new Set(word)].sort().join(''));
+    // gpt helped
+    const grid = Array.from({ length: columns }, (_, i) => createCol(i));
 
-    console.log(words);
-
+    return grid.reduce((acc, val) => (isSorted(val) ? acc : acc + 1), 0);
 };
-
-similarPairs(words)
+minDeletionSize(['a', 'b'])
