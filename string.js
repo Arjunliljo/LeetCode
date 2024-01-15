@@ -104,4 +104,19 @@ var freqAlphabets = function (s) {
     return ans.reduce((acc, val) => acc + decrypt(val), '');
 };
 
-console.log(freqAlphabets("10#11#12"))
+//console.log(freqAlphabets("10#11#12"))
+
+
+//2506. Count Pairs Of Similar Strings
+
+const words = ["aba", "aabb", "abcd", "bac", "aabc"];
+
+var similarPairs = function (words) {
+
+    words = words.map(word => [...new Set(word)].sort().join(''));
+
+    console.log(words);
+
+};
+
+similarPairs(words)
