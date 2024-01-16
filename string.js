@@ -124,7 +124,7 @@ var minDeletionSize = function (strs) {
         }
         return true;
     }
-
+    //https://github.com/Arjunliljo/LeetCode.git
     const columns = strs[0].length;
 
     // gpt helped
@@ -132,4 +132,31 @@ var minDeletionSize = function (strs) {
 
     return grid.reduce((acc, val) => (isSorted(val) ? acc : acc + 1), 0);
 };
-minDeletionSize(['a', 'b']);
+
+
+//2553. Separate the Digits in an Array
+var separateDigits = function (nums) {
+
+    const splitNum = (num) => {
+
+        const ans = [];
+
+        while (num > 0) {
+
+            ans.unshift(num % 10);
+
+            num = Math.trunc(num / 10);
+        }
+
+        return ans;
+    }
+
+    const ans = nums.map(digit => {
+
+        if (digit < 10) return digit;
+
+        return splitNum(digit);
+    })
+
+    return ans.flat();
+};
