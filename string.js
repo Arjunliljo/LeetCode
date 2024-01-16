@@ -132,4 +132,4 @@ var minDeletionSize = function (strs) {
 
     return grid.reduce((acc, val) => (isSorted(val) ? acc : acc + 1), 0);
 };
-minDeletionSize(['a', 'b'])
+minDeletionSize(['a', 'b']);
