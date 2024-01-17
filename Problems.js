@@ -175,3 +175,15 @@ var countConsistentStrings = function (allowed, words) {
         return acc + 1;
     }, 0)
 };
+
+//2733. Neither Minimum nor Maximum
+var findNonMinOrMax = function (nums) {
+
+    if (nums.length <= 2) return -1;
+
+    const max = Math.max(...nums);
+
+    const min = Math.min(...nums);
+
+    return nums.find((val) => val !== min && val !== max);
+};
