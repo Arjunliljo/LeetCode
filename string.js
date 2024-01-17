@@ -160,3 +160,18 @@ var separateDigits = function (nums) {
 
     return ans.flat();
 };
+//git config --global commit.gpgSign true
+
+
+//1684. Count the Number of Consistent Strings
+var countConsistentStrings = function (allowed, words) {
+
+    return words.reduce((acc, word) => {
+
+        for (let i = 0; i < word.length; i++) {
+            if (!allowed.includes(word[i])) return acc;
+        }
+
+        return acc + 1;
+    }, 0)
+};
