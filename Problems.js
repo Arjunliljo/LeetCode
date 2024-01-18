@@ -187,3 +187,45 @@ var findNonMinOrMax = function (nums) {
 
     return nums.find((val) => val !== min && val !== max);
 };
+
+//1351. Count Negative Numbers in a Sorted Matrix
+var countNegatives = function (grid) {
+
+    function negCount(arr) {
+
+        let start = 0;
+        let end = arr.length - 1;
+        let target;
+
+
+        if (arr[end] >= 0) return 0;
+
+        if (arr[start] < 0) return arr.length;
+
+        while (start <= end) {
+
+            let mid = Math.trunc((start + end) / 2)
+
+            if (arr[mid - 1] >= 0 && arr[mid] < 0) {
+                target = mid;
+                break;
+            }
+
+            if (arr[mid] >= 0) start = mid + 1;
+
+            if (arr[mid] < 0) end = mid - 1;
+
+        }
+
+        if (target) return arr.length - (target);
+
+        return -1;
+    }
+    console.log(negCount([1, -1]));
+    return grid.reduce((acc, arr) => {
+
+        if (negCount(arr) > 0) return acc + negCount(arr);
+
+        return acc;
+    }, 0)
+};
