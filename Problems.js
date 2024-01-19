@@ -221,7 +221,6 @@ var countNegatives = function (grid) {
 
         return -1;
     }
-    console.log(negCount([1, -1]));
     return grid.reduce((acc, arr) => {
 
         if (negCount(arr) > 0) return acc + negCount(arr);
