@@ -228,3 +228,15 @@ var countNegatives = function (grid) {
         return acc;
     }, 0)
 };
+
+//2706. Buy Two Chocolates
+var buyChoco = function (prices, money) {
+
+    prices.sort((a, b) => a - b);
+
+    const total = prices[0] + prices[1];
+
+    if (total <= money) return money - total;
+
+    return money;
+};
