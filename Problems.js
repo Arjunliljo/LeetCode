@@ -240,3 +240,8 @@ var buyChoco = function (prices, money) {
 
     return money;
 };
+
+//2057. Smallest Index With Equal Value
+var smallestEqual = function (nums) {
+    return nums.findIndex((val, i) => i % 10 === val) ?? -1;
+};
