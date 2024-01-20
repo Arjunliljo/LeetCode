@@ -245,3 +245,14 @@ var buyChoco = function (prices, money) {
 var smallestEqual = function (nums) {
     return nums.findIndex((val, i) => i % 10 === val) ?? -1;
 };
+
+//2951. Find the Peaks
+var findPeaks = function (mountain) {
+
+    return mountain.reduce((acc, val, i) => {
+        if (i === 0 || i === mountain.length - 1) return acc;
+        if (val > mountain[i + 1] && val > mountain[i - 1]) acc.push(i);
+        return acc;
+    }, [])
+
+};
