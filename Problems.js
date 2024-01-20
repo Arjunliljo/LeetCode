@@ -1,4 +1,4 @@
-//344. Reverse String
+//344.1 Reverse String
 var reverseString = function (s) {
 
     // return s.reverse();
@@ -18,7 +18,7 @@ var reverseString = function (s) {
     return s;
 };
 
-//709. To Lower Case
+//709.2 To Lower Case
 var toLowerCase = function (s) {
 
     let result = '';
@@ -36,7 +36,7 @@ var toLowerCase = function (s) {
     return result;
 };
 
-//2744. Find Maximum Number of String Pairs
+//2744.3 Find Maximum Number of String Pairs
 var maximumNumberOfStringPairs = function (words) {
 
     return words.reduce((acc, s, i) => {
@@ -61,7 +61,7 @@ var maximumNumberOfStringPairs = function (words) {
         return reversed;
     }
 };
-//1844. Replace All Digits with Characters
+//1844.4 Replace All Digits with Characters
 var replaceDigits = function (s) {
 
     const shift = (char, num) => String.fromCharCode(char.charCodeAt(0) + Number(num));
@@ -79,7 +79,7 @@ var replaceDigits = function (s) {
 
 //console.log(replaceDigits('a1b2c3d4e'));
 
-//1309. Decrypt String from Alphabet to Integer Mapping
+//1309.5 Decrypt String from Alphabet to Integer Mapping
 var freqAlphabets = function (s) {
 
     const decrypt = (val) => String.fromCharCode('a'.charCodeAt(0) + Number(val) - 1);
@@ -107,7 +107,7 @@ var freqAlphabets = function (s) {
 //console.log(freqAlphabets("10#11#12"))
 
 
-//944. Delete Columns to Make Sorted
+//944.6 Delete Columns to Make Sorted
 var minDeletionSize = function (strs) {
     const createCol = (num) => {
         let col = '';
@@ -134,7 +134,7 @@ var minDeletionSize = function (strs) {
 };
 
 
-//2553. Separate the Digits in an Array
+//2553.7 Separate the Digits in an Array
 var separateDigits = function (nums) {
 
     const splitNum = (num) => {
@@ -163,7 +163,7 @@ var separateDigits = function (nums) {
 //git config --global commit.gpgSign true
 
 
-//1684. Count the Number of Consistent Strings
+//1684.8 Count the Number of Consistent Strings
 var countConsistentStrings = function (allowed, words) {
 
     return words.reduce((acc, word) => {
@@ -176,7 +176,7 @@ var countConsistentStrings = function (allowed, words) {
     }, 0)
 };
 
-//2733. Neither Minimum nor Maximum
+//2733.9 Neither Minimum nor Maximum
 var findNonMinOrMax = function (nums) {
 
     if (nums.length <= 2) return -1;
@@ -188,7 +188,7 @@ var findNonMinOrMax = function (nums) {
     return nums.find((val) => val !== min && val !== max);
 };
 
-//1351. Count Negative Numbers in a Sorted Matrix
+//1351.10 Count Negative Numbers in a Sorted Matrix
 var countNegatives = function (grid) {
 
     function negCount(arr) {
@@ -229,7 +229,7 @@ var countNegatives = function (grid) {
     }, 0)
 };
 
-//2706. Buy Two Chocolates
+//2706.11 Buy Two Chocolates
 var buyChoco = function (prices, money) {
 
     prices.sort((a, b) => a - b);
@@ -241,12 +241,12 @@ var buyChoco = function (prices, money) {
     return money;
 };
 
-//2057. Smallest Index With Equal Value
+//2057.12 Smallest Index With Equal Value
 var smallestEqual = function (nums) {
     return nums.findIndex((val, i) => i % 10 === val) ?? -1;
 };
 
-//2951. Find the Peaks
+//2951.13 Find the Peaks
 var findPeaks = function (mountain) {
 
     return mountain.reduce((acc, val, i) => {
@@ -257,7 +257,7 @@ var findPeaks = function (mountain) {
 
 };
 
-//1295. Find Numbers with Even Number of Digits
+//1295.14 Find Numbers with Even Number of Digits
 var findNumbers = function (nums) {
 
     const evenCount = (num) => {
