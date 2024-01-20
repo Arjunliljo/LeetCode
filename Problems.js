@@ -256,3 +256,20 @@ var findPeaks = function (mountain) {
     }, [])
 
 };
+
+//1295. Find Numbers with Even Number of Digits
+var findNumbers = function (nums) {
+
+    const count = (num) => {
+
+        let digit = 0;
+
+        while (num > 0) {
+            digit++;
+            num = Math.trunc(num / 10);
+        }
+        return digit % 2 === 0;
+    }
+
+    return nums.reduce((acc, val) => count(val) ? ++acc : acc, 0);
+};
