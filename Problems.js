@@ -273,3 +273,30 @@ var findNumbers = function (nums) {
 
     return nums.reduce((acc, val) => evenCount(val) ? ++acc : acc, 0);
 };
+
+//2544. Alternating Digit Sum
+var alternateDigitSum = function (n) {
+
+    const digit = [];
+
+    while (n > 0) {
+
+        digit.unshift(n % 10);
+
+        n = Math.floor(n / 10);
+    }
+
+    return digit.reduce((acc, val, i) => {
+
+        if (i % 2 !== 0) {
+
+            return acc + (val * -1);
+        }
+        else {
+
+            return acc + val;
+        }
+
+    }, 0)
+
+};
