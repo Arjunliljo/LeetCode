@@ -300,3 +300,14 @@ var alternateDigitSum = function (n) {
     }, 0)
 
 };
+
+//268. Missing Number
+var missingNumber = function (nums) {
+
+    const correctSum = (nums.length * (nums.length + 1)) / 2;
+
+    const currSum = nums.reduce((sum, val) => sum + val, 0);
+
+    return correctSum - currSum;
+
+};
