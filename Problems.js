@@ -311,3 +311,35 @@ var missingNumber = function (nums) {
     return correctSum - currSum;
 
 };
+
+//1688. Count of Matches in Tournament
+var numberOfMatches = function (n) {
+
+    let correntTeam = n;
+
+    let matches = (team) => {
+
+        if (team % 2 === 0) {
+
+            correntTeam = team / 2;
+
+            return correntTeam;
+        }
+
+        else {
+
+            correntTeam = ((team - 1) / 2) + 1;
+
+            return (team - 1) / 2;
+        };
+    };
+
+    let totalMatch = 0;
+
+    while (correntTeam > 1) {
+
+        totalMatch += matches(correntTeam);
+    }
+
+    return totalMatch;
+};
