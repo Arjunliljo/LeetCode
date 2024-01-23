@@ -340,6 +340,5 @@ var numberOfMatches = function (n) {
 
         totalMatch += matches(correntTeam);
     }
-
     return totalMatch;
 };
