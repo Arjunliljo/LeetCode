@@ -342,3 +342,19 @@ var numberOfMatches = function (n) {
     }
     return totalMatch;
 };
+
+//1304. Find N Unique Integers Sum up to Zero
+var sumZero = function (n) {
+
+    const ans = [];
+
+    for (let i = 1; i <= n / 2; i++) {
+
+        ans.push(i, -i);
+    }
+
+    n % 2 !== 0 && ans.push(0);
+
+    return ans;
+
+};
