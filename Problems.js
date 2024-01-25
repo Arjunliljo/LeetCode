@@ -358,3 +358,14 @@ var sumZero = function (n) {
     return ans;
 
 };
+
+//389. Find the Difference
+var findTheDifference = function (s, t) {
+
+    s = s.split('');
+
+    s.forEach(val => t = t.replace(val, ''));
+
+    return t;
+
+};
