@@ -400,3 +400,13 @@ var findMaxK = function (nums) {
 
     }, 0) || -1;
 };
+
+//575. Distribute Candies
+var distributeCandies = function (candyType) {
+
+    const differentType = new Set(candyType);
+
+    const allowed = candyType.length / 2;
+
+    return differentType.size > allowed ? allowed : differentType.size;
+};
