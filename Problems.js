@@ -369,3 +369,23 @@ var findTheDifference = function (s, t) {
     return t;
 
 };
+
+//709. To Lower Case
+var toLowerCase = function (s) {
+
+    //String.fromCharCode(char.charCodeAt(0) + 32)
+
+    let result = '';
+
+    for (let i = 0; i < s.length; i++) {
+
+        if (s[i] <= 'Z' && s[i] >= 'A') {
+
+            result += String.fromCharCode(s[i].charCodeAt(0) + 32);
+        }
+        else
+            result += s[i];
+    }
+
+    return result;
+};
