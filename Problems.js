@@ -389,3 +389,14 @@ var toLowerCase = function (s) {
 
     return result;
 };
+//2441. Largest Positive Integer That Exists With Its Negative
+var findMaxK = function (nums) {
+
+    return nums.reduce((acc, val) => {
+
+        if (val > acc && nums.includes(-val)) return val;
+
+        return acc;
+
+    }, 0) || -1;
+};
