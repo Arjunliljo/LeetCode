@@ -410,3 +410,4 @@ var distributeCandies = function (candyType) {
 
     return differentType.size > allowed ? allowed : differentType.size;
 };
+
