@@ -411,3 +411,16 @@ var distributeCandies = function (candyType) {
     return differentType.size > allowed ? allowed : differentType.size;
 };
 
+//744. Find Smallest Letter Greater Than Target
+var nextGreatestLetter = function (letters, target) {
+
+    letters = [...new Set(letters)];
+
+    const ans = letters.indexOf(target);
+
+    if (ans === letters.length - 1) return letters[0];
+
+    if (ans !== -1) return letters[ans + 1];
+
+    return letters.find(char => char.charCodeAt(0) > target.charCodeAt(0)) || letters[0];
+};
