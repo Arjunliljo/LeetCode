@@ -424,3 +424,18 @@ var nextGreatestLetter = function (letters, target) {
 
     return letters.find(char => char.charCodeAt(0) > target.charCodeAt(0)) || letters[0];
 };
+//628. Maximum Product of Three Numbers
+function maximumProduct(nums) {
+    nums.sort((a, b) => a - b);
+
+    const n = nums.length;
+
+    // Case 1: Product of three largest positive numbers
+    const product1 = nums[n - 1] * nums[n - 2] * nums[n - 3];
+
+    // Case 2: Product of two smallest negative numbers and the largest positive number
+    const product2 = nums[0] * nums[1] * nums[n - 1];
+
+    // Return the maximum of the two cases
+    return Math.max(product1, product2);
+}
