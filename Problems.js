@@ -546,5 +546,22 @@ var peakIndexInMountainArray = function (arr) {
     })
 };
 
+//162. Find Peak Element
+var findPeakElement = function (arr) {
+
+    if (arr.length <= 3) return arr.indexOf(Math.max(...arr));
+
+    const index = arr.findIndex((val, i) => {
+
+        if (i === 0) return;
+
+        return val > arr[i + 1] && val > arr[i - 1]
+    })
+
+    if (index < 0) return arr.indexOf(Math.max(...arr));
+
+    return index;
+};
+
 
 
