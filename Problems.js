@@ -440,50 +440,37 @@ function maximumProduct(nums) {
     return Math.max(product1, product2);
 }
 
-var search = function (nums, target) {
+//34. Find First and Last Position of Element in Sorted Array
 
-    // return nums.indexOf(target);
+var searchRange = function (nums, target) {
 
-    const pivot = findPivot();
-    console.log(pivot);
-    return findTarget(pivot);
+    const ans = [];
 
-    function findPivot() {
+    let start = 0;
+    let end = nums.length - 1;
 
-        let start = 0;
-        let end = nums.length - 1;
+    while (start <= end) {
 
-        while (start <= end) {
+        let mid = Math.floor((start + end) / 2);
 
-            let mid = Math.floor((start + end) / 2);
+        if (nums[mid] === target) {
 
-            if (mid > 0 && nums[mid] < nums[mid - 1]) return mid;
+            while (nums[mid] === target) mid--;
 
-            if (nums[mid] > nums[end]) start = mid + 1;
+            ans.push(++mid);
 
-            else end = mid - 1;
+            while (nums[mid] === target) mid++;
+
+            ans.push(--mid);
+
+            return ans;
         }
 
-        return -1;
+        if (nums[mid] < target) start = mid + 1;
+
+        else end = mid - 1;
     }
 
-    function findTarget(pivot) {
-
-        let start = pivot;
-        let end = nums.length - 1;
-
-        while (start <= end) {
-
-            let mid = Math.floor((start + end) / 2);
-
-            if (nums[mid] === target) return mid;
-
-            if (nums[mid] < target) start = mid + 1;
-
-            else end = mid - 1;
-        }
-        return -1;
-    }
+    return [-1, -1];
 };
 
-console.log(search([4, 5, 6, 7, 0, 1, 2], 0));
