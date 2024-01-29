@@ -535,5 +535,16 @@ var search = function (nums, target) {
 
 };
 
+//852. Peak Index in a Mountain Array
+var peakIndexInMountainArray = function (arr) {
+
+    return arr.findIndex((val, i) => {
+
+        if (i === 0) return;
+
+        return val > arr[i + 1] && val > arr[i - 1]
+    })
+};
+
 
 
