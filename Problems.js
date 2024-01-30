@@ -563,5 +563,19 @@ var findPeakElement = function (arr) {
     return index;
 };
 
+//2089. Find Target Indices After Sorting Array
+var targetIndices = function (nums, target) {
+
+    const ans = [];
+
+    nums.sort((a, b) => a - b);
+
+    let index = nums.indexOf(target);
+
+    while (nums[index] === target) ans.push(index++);
+
+    return ans;
+};
+
 
 
