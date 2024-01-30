@@ -584,6 +584,19 @@ var intersection = function (nums1, nums2) {
 
     return ans = nums1.filter(val => nums2.includes(val));
 };
+//287. Find the Duplicate Number
+var findDuplicate = function (nums) {
 
+    const unique = new Set();
+
+    for (const val of nums) {
+
+        if (unique.has(val)) return val;
+
+        unique.add(val);
+    }
+
+    return -1;
+};
 
 
