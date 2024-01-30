@@ -582,7 +582,7 @@ var intersection = function (nums1, nums2) {
 
     nums1 = [...new Set(nums1)];
 
-    return ans = nums1.filter(val => nums2.includes(val));
+    return nums1.filter(val => nums2.includes(val));
 };
 //287. Find the Duplicate Number
 var findDuplicate = function (nums) {
