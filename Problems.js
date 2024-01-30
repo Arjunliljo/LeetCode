@@ -577,5 +577,13 @@ var targetIndices = function (nums, target) {
     return ans;
 };
 
+//349. Intersection of Two Arrays
+var intersection = function (nums1, nums2) {
+
+    nums1 = [...new Set(nums1)];
+
+    return ans = nums1.filter(val => nums2.includes(val));
+};
+
 
 
