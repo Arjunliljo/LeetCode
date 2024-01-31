@@ -611,4 +611,12 @@ var searchMatrix = function (matrix, target) {
     return false;
 };
 
+//Medium need to Optimize
+//378. Kth Smallest Element in a Sorted Matrix
+var kthSmallest = function (matrix, k) {
+
+    matrix = matrix.flat().sort((a, b) => a - b);
+
+    return matrix[k - 1];
+};
 
