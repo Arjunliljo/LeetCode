@@ -599,4 +599,16 @@ var findDuplicate = function (nums) {
     return -1;
 };
 
+//Medium need to optimize
+//74. Search a 2D Matrix
+var searchMatrix = function (matrix, target) {
+
+    for (const val of matrix) {
+
+        if (val.includes(target)) return true;
+    }
+
+    return false;
+};
+
 
