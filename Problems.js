@@ -620,3 +620,28 @@ var kthSmallest = function (matrix, k) {
     return matrix[k - 1];
 };
 
+//278. First Bad Version
+var solution = function (isBadVersion) {
+    /**
+     * @param {integer} n Total versions
+     * @return {integer} The first bad version
+     */
+    return function (n) {
+
+        let start = 1;
+        let end = n;
+
+        while (start <= end) {
+
+            let mid = Math.floor((start + end) / 2);
+
+            if (mid > 1 && !isBadVersion(mid - 1) && isBadVersion(mid)) return mid;
+
+            if (isBadVersion(mid)) end = mid - 1;
+
+            else start = mid + 1;
+        }
+
+        return 1;
+    };
+};
