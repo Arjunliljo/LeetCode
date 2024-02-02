@@ -645,3 +645,35 @@ var solution = function (isBadVersion) {
         return 1;
     };
 };
+
+//240. Search a 2D Matrix II
+var searchMatrix = function (matrix, target) {
+
+    return matrix.some((val, i) => {
+
+        if (val[0] < target && isTarget(i)) return true;
+
+        return false;
+    })
+
+    function isTarget(index) {
+
+        let start = 0;
+
+        let end = matrix[index].length - 1;
+
+        while (start <= end) {
+
+            let mid = Math.floor((start + end) / 2);
+
+            if (matrix[index][mid] === target) return true;
+
+            if (matrix[index][mid] < target) start = mid + 1;
+
+            else end = mid - 1;
+        }
+
+        return false;
+    }
+
+};
