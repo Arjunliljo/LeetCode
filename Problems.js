@@ -677,3 +677,34 @@ var searchMatrix = function (matrix, target) {
     }
 
 };
+
+// Hard need to optimize
+//4. Median of Two Sorted Arrays
+var findMedianSortedArrays = function (nums1, nums2) {
+
+    const arr = nums1.concat(nums2);
+
+    arr.sort((a, b) => a - b);
+
+    let mid = Math.floor(arr.length / 2);
+
+    if (arr.length % 2 === 0) {
+
+        return (arr[mid] + arr[mid - 1]) / 2;
+    }
+    else {
+
+        return arr[mid];
+    }
+};
+
+// 350. Intersection of Two Arrays II
+var intersect = function (nums1, nums2) {
+    return nums1.filter((val, i) => {
+        if (nums2.includes(val)) {
+            nums2.splice(nums2.indexOf(val), 1);
+            return true;
+        }
+        return false;
+    });
+};
