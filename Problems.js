@@ -708,3 +708,41 @@ var intersect = function (nums1, nums2) {
         return false;
     });
 };
+//1539. Kth Missing Positive Number
+var findKthPositive = function (arr, k) {
+
+    let count = 0;
+
+    if (arr.length < arr.at(-1)) {
+
+        let i = 1;
+
+        for (i = 1, j = 0; j < arr.length; i++) {
+
+            if (i !== arr[j]) {
+                count++;
+            }
+            else j++;
+
+            if (count === k) return i;
+        }
+
+        while (count < k) {
+            count++;
+            i++;
+        };
+
+        return i - 1;
+    }
+    else {
+
+        count = arr.at(-1);
+
+        for (let i = 0; i < k; i++) {
+            count++;
+        }
+
+        return count;
+    }
+};
+console.log(findKthPositive([5, 6, 7, 8, 9], 9));;
