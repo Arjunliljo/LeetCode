@@ -745,4 +745,23 @@ var findKthPositive = function (arr, k) {
         return count;
     }
 };
-console.log(findKthPositive([5, 6, 7, 8, 9], 9));;
+
+//2529. Maximum Count of Positive Integer and Negative Integer
+var maximumCount = function (nums) {
+
+    const posCount = nums.reduce((acc, val) => val > 0 ? acc + 1 : acc, 0);
+
+    const negCount = nums.reduce((acc, val) => val < 0 ? acc + 1 : acc, 0);
+
+    return Math.max(posCount, negCount);
+};
+
+
+//414. Third Maximum Number
+var thirdMax = function (nums) {
+
+    nums = [...new Set(nums)].sort((a, b) => b - a);
+
+    return nums[2] ?? nums[0];
+};
+
