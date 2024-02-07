@@ -765,3 +765,17 @@ var thirdMax = function (nums) {
     return nums[2] ?? nums[0];
 };
 
+
+//1337. The K Weakest Rows in a Matrix
+var kWeakestRows = function (mat, k) {
+
+    const values = new Map();
+
+    mat.forEach((arr, i) => {
+        const count = arr.reduce((acc, val) => val ? acc + 1 : acc, 0);
+        values.set(i, count);
+    })
+
+    return Array.from(values).sort((a, b) => a[1] - b[1]).splice(0, k).map(val => val[0]);
+};
+
