@@ -810,18 +810,3 @@ var frequencySort = function (s) {
     return frequencyOf.sort((a, b) => b[0] - a[0]).map(arr => arr[1]).join('');
 };
 
-var rotate = function (matrix) {
-
-    const rotated = [];
-
-    for (let j = 0; j < matrix.length; j++) {
-
-        for (let i = matrix.length - 1; i >= 0; i--) {
-
-            rotated.push(matrix[i][j]);
-        }
-    }
-
-    return rotated;
-};
-
