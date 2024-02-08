@@ -780,3 +780,48 @@ var kWeakestRows = function (mat, k) {
     return Array.from(values).sort((a, b) => a[1] - b[1]).splice(0, k).map(val => val[0]);
 };
 
+// 451. Sort Characters By Frequency
+var frequencySort = function (s) {
+
+    const counts = (char) => {
+
+        let count = 0;
+
+        for (let i = 0; i < s.length; i++) {
+
+            s[i] === char && count++;
+        }
+
+        return count;
+    }
+
+    const chars = Array.from(new Set(s.split('')));
+
+    const frequencyOf = [];
+
+    chars.forEach(val => {
+
+        const frequency = counts(val);
+
+        frequencyOf.push([frequency, val.repeat(frequency)]);
+
+    });
+
+    return frequencyOf.sort((a, b) => b[0] - a[0]).map(arr => arr[1]).join('');
+};
+
+var rotate = function (matrix) {
+
+    const rotated = [];
+
+    for (let j = 0; j < matrix.length; j++) {
+
+        for (let i = matrix.length - 1; i >= 0; i--) {
+
+            rotated.push(matrix[i][j]);
+        }
+    }
+
+    return rotated;
+};
+
