@@ -810,3 +810,15 @@ var frequencySort = function (s) {
     return frequencyOf.sort((a, b) => b[0] - a[0]).map(arr => arr[1]).join('');
 };
 
+//88. Merge Sorted Array
+var merge = function (nums1, m, nums2, n) {
+
+    let i = 0;
+
+    while (i < n) {
+
+        nums1[m++] = nums2[i++];
+    }
+
+    return nums1.sort((a, b) => a - b);
+};
