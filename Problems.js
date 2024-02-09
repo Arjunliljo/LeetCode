@@ -822,3 +822,18 @@ var merge = function (nums1, m, nums2, n) {
 
     return nums1.sort((a, b) => a - b);
 };
+
+//27. Remove Element
+var removeElement = function (nums, val) {
+
+    const dupCount = nums.reduce((acc, value) => val === value ? acc + 1 : acc, 0);
+
+    const length = nums.length;
+
+    for (let i = 0, j = 0; i < nums.length; i++) {
+
+        if (nums[i] !== val) nums[j++] = nums[i];
+    }
+
+    return length - dupCount;
+};
