@@ -834,6 +834,5 @@ var removeElement = function (nums, val) {
 
         if (nums[i] !== val) nums[j++] = nums[i];
     }
-
     return length - dupCount;
 };
