@@ -837,6 +837,7 @@ var removeElement = function (nums, val) {
     return length - dupCount;
 };
 
+//26. Remove Duplicates from Sorted Array
 var removeDuplicates = function (nums) {
 
     const moveToLast = (index) => {
@@ -856,3 +857,33 @@ var removeDuplicates = function (nums) {
     return unique.length;
 };
 
+//Medium
+//80. Remove Duplicates from Sorted Array II
+var removeDuplicates = function (nums) {
+
+    let size = nums.length;
+
+    const moveToLast = (i) => {
+        for (let j = i; j < size - 1; j++) {
+            nums[j] = nums[j + 1];
+        }
+        size--;
+    }
+
+    let count = 1;
+
+    for (let i = 0; i < size - 1; i++) {
+        if (nums[i] === nums[i + 1]) {
+            count++;
+
+            if (count > 2) {
+                moveToLast(i);
+                i--;
+            };
+
+        } else {
+            count = 1;
+        }
+    }
+    return size;
+};
