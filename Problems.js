@@ -887,3 +887,20 @@ var removeDuplicates = function (nums) {
     }
     return size;
 };
+
+//Medium
+//189. Rotate Array
+var rotate = function (nums, k) {
+    k = k % nums.length;
+    console.log(k);
+    const firstPart = nums.slice(nums.length - k);
+    const secondPart = nums.slice(0, nums.length - k);
+
+    nums.length = 0;
+
+    nums.push(...firstPart, ...secondPart)
+    return nums;
+};
+const nums = [1, 2];
+rotate(nums, 3);
+console.log(nums);
