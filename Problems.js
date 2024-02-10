@@ -836,3 +836,23 @@ var removeElement = function (nums, val) {
     }
     return length - dupCount;
 };
+
+var removeDuplicates = function (nums) {
+
+    const moveToLast = (index) => {
+
+        for (let i = index; i < nums.length - 1; i++) {
+
+            nums[i] = nums[i + 1];
+        }
+    }
+
+    const unique = [...new Set(nums)];
+
+    for (let i = 0; i < unique.length; i++) {
+        nums[i] = unique[i];
+    }
+
+    return unique.length;
+};
+
