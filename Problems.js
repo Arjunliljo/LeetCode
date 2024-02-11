@@ -1,3 +1,4 @@
+
 //344.1 Reverse String
 var reverseString = function (s) {
 
@@ -77,7 +78,6 @@ var replaceDigits = function (s) {
     return s.length % 2 !== 0 ? result.concat(s.at(-1)) : result;
 };
 
-//console.log(replaceDigits('a1b2c3d4e'));
 
 //1309.5 Decrypt String from Alphabet to Integer Mapping
 var freqAlphabets = function (s) {
@@ -104,7 +104,6 @@ var freqAlphabets = function (s) {
     return ans.reduce((acc, val) => acc + decrypt(val), '');
 };
 
-//console.log(freqAlphabets("10#11#12"))
 
 
 //944.6 Delete Columns to Make Sorted
@@ -124,7 +123,6 @@ var minDeletionSize = function (strs) {
         }
         return true;
     }
-    //https://github.com/Arjunliljo/LeetCode.git
     const columns = strs[0].length;
 
     // gpt helped
@@ -160,7 +158,6 @@ var separateDigits = function (nums) {
 
     return ans.flat();
 };
-//git config --global commit.gpgSign true
 
 
 //1684.8 Count the Number of Consistent Strings
@@ -892,7 +889,7 @@ var removeDuplicates = function (nums) {
 //189. Rotate Array
 var rotate = function (nums, k) {
     k = k % nums.length;
-    console.log(k);
+
     const firstPart = nums.slice(nums.length - k);
     const secondPart = nums.slice(0, nums.length - k);
 
@@ -901,6 +898,35 @@ var rotate = function (nums, k) {
     nums.push(...firstPart, ...secondPart)
     return nums;
 };
-const nums = [1, 2];
-rotate(nums, 3);
-console.log(nums);
+
+var maxProfit = function (prices) {
+
+    let profit = 0;
+
+    for (let i = 0; i < prices.length - 1; i++) {
+
+        for (let j = i + 1; j < prices.length; j++) {
+
+            if (prices[i] < prices[j] + 1) {
+
+                profit += prices[j] + 1 - prices[i];
+
+                i = j;
+
+                break;
+            }
+
+        }
+    }
+
+    return profit;
+};
+
+var lengthOfLastWord = function (s) {
+
+    let words = s.split(' ');
+
+    words = words.filter((val) => val);
+
+    return words.at(-1).trim().length;
+};
