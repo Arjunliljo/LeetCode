@@ -922,15 +922,6 @@ var maxProfit = function (prices) {
     return profit;
 };
 
-var lengthOfLastWord = function (s) {
-
-    let words = s.split(' ');
-
-    words = words.filter((val) => val);
-
-    return words.at(-1).trim().length;
-};
-
 //Medium
 //122. Best Time to Buy and Sell Stock II
 var maxProfit = function (prices) {
@@ -943,4 +934,15 @@ var maxProfit = function (prices) {
     }
 
     return profit;
+};
+
+//Easy
+//58. Length of Last Word
+var lengthOfLastWord = function (s) {
+
+    let words = s.split(' ');
+
+    words = words.filter((val) => val);
+
+    return words.at(-1).trim().length;
 };
