@@ -981,3 +981,16 @@ var twoSum = function (numbers, target) {
 
     return [];
 };
+
+//Medium --Need to Optimize
+//238. Product of Array Except Self
+var productExceptSelf = function (nums) {
+
+    const product = nums.reduce((acc, val) => val ? acc * val : acc, 1);
+
+    const productFun = (i) => nums.reduce((acc, value, j) => (i !== j ? acc * value : acc), 1);
+
+    if (nums.includes(0)) return nums.map((val, i) => productFun(i));
+
+    return nums.map((val) => product / val);
+};
