@@ -946,3 +946,16 @@ var isPalindrome = function (s) {
         return true;
     }
 };
+
+//Medium
+//151. Reverse Words in a String
+var reverseWords = function (s) {
+
+    s = s.trim();
+
+    let reversed = s.split(' ').reverse();
+
+    reversed = reversed.filter((word) => word);
+
+    return reversed.join(' ')
+};
