@@ -959,3 +959,25 @@ var reverseWords = function (s) {
 
     return reversed.join(' ')
 };
+
+//Medium
+//167. Two Sum II - Input Array Is Sorted
+var twoSum = function (numbers, target) {
+
+    let start = 0;
+
+    let end = numbers.length - 1;
+
+    while (start <= end) {
+
+        let sum = numbers[start] + numbers[end];
+
+        if (sum === target) return [start + 1, end + 1];
+
+        else if (sum > target) end--;
+
+        else start++;
+    }
+
+    return [];
+};
