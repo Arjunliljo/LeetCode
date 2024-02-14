@@ -1,4 +1,6 @@
 
+//https://ejosue.com/about/
+
 //344.1 Reverse String
 var reverseString = function (s) {
 
@@ -994,3 +996,34 @@ var productExceptSelf = function (nums) {
 
     return nums.map((val) => product / val);
 };
+
+//Medium
+//3. Longest Substring Without Repeating Characters
+var lengthOfLongestSubstring = function (s) {
+
+    const unique = new Set();
+
+    let count = 0, ans = 0;
+
+    for (let i = 0; i < s.length; i++) {
+
+        if (!unique.has(s[i])) {
+            count++;
+            ans = count > ans ? count : ans;
+        }
+
+        else {
+            while (unique.has(s[i])) {
+                unique.delete(s[i - count]);
+                count--;
+            }
+            count++;
+        }
+
+        unique.add(s[i])
+    }
+
+    return ans;
+};
+
+console.log(lengthOfLongestSubstring("pwwkew"));
