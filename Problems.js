@@ -1013,10 +1013,14 @@ var lengthOfLongestSubstring = function (s) {
         }
 
         else {
+
             while (unique.has(s[i])) {
+
                 unique.delete(s[i - count]);
+
                 count--;
             }
+
             count++;
         }
 
@@ -1025,5 +1029,24 @@ var lengthOfLongestSubstring = function (s) {
 
     return ans;
 };
+//2053. Kth Distinct String in an Array
+var kthDistinct = function (arr, k) {
+    const frequencyMap = new Map();
 
-console.log(lengthOfLongestSubstring("pwwkew"));
+    for (const str of arr) {
+        frequencyMap.set(str, (frequencyMap.get(str) || 0) + 1);
+    }
+
+
+    for (const str of arr) {
+        if (frequencyMap.get(str) === 1) {
+            k--;
+
+            if (k === 0) {
+                return str;
+            }
+        }
+    }
+
+    return "";
+};
