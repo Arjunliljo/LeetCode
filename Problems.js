@@ -1074,3 +1074,27 @@ var findLeastNumOfUniqueInts = function (arr, k) {
 
     return uniqueCount;
 };
+//Medium
+//1481. Least Number of Unique Integers after K Removals
+var findLeastNumOfUniqueInts = function (arr, k) {
+    const frequency = new Map();
+
+    arr.forEach(val => {
+        frequency.set(val, (frequency.get(val) || 0) + 1);
+    });
+
+    const sortedFrequency = Array.from(frequency.entries()).sort((a, b) => a[1] - b[1]);
+
+    let uniqueCount = sortedFrequency.length;
+
+    for (const [, count] of sortedFrequency) {
+        if (k >= count) {
+            k -= count;
+            uniqueCount--;
+        } else {
+            break;
+        }
+    }
+
+    return uniqueCount;
+};
