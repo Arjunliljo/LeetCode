@@ -1074,27 +1074,17 @@ var findLeastNumOfUniqueInts = function (arr, k) {
 
     return uniqueCount;
 };
-//Medium
-//1481. Least Number of Unique Integers after K Removals
-var findLeastNumOfUniqueInts = function (arr, k) {
-    const frequency = new Map();
+//392. Is Subsequence
+var isSubsequence = function (s, t) {
 
-    arr.forEach(val => {
-        frequency.set(val, (frequency.get(val) || 0) + 1);
-    });
+    for (let i = 0; i < s.length; i++) {
 
-    const sortedFrequency = Array.from(frequency.entries()).sort((a, b) => a[1] - b[1]);
+        if (!t.includes(s[i])) return false;
 
-    let uniqueCount = sortedFrequency.length;
-
-    for (const [, count] of sortedFrequency) {
-        if (k >= count) {
-            k -= count;
-            uniqueCount--;
-        } else {
-            break;
+        else {
+            t = t.slice(t.indexOf(s[i]) + 1);
         }
     }
 
-    return uniqueCount;
+    return true;
 };
