@@ -1088,3 +1088,9 @@ var isSubsequence = function (s, t) {
 
     return true;
 };
+
+//28. Find the Index of the First Occurrence in a String
+var strStr = function (haystack, needle) {
+    if (haystack.includes(needle)) return haystack.indexOf(needle);
+    return -1;
+};
