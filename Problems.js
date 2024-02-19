@@ -1037,7 +1037,6 @@ var kthDistinct = function (arr, k) {
         frequencyMap.set(str, (frequencyMap.get(str) || 0) + 1);
     }
 
-
     for (const str of arr) {
         if (frequencyMap.get(str) === 1) {
             k--;
