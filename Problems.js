@@ -1054,15 +1054,11 @@ var kthDistinct = function (arr, k) {
 //1481. Least Number of Unique Integers after K Removals
 var findLeastNumOfUniqueInts = function (arr, k) {
     const frequency = new Map();
-
     arr.forEach(val => {
         frequency.set(val, (frequency.get(val) || 0) + 1);
     });
-
     const sortedFrequency = Array.from(frequency.entries()).sort((a, b) => a[1] - b[1]);
-
     let uniqueCount = sortedFrequency.length;
-
     for (const [, count] of sortedFrequency) {
         if (k >= count) {
             k -= count;
@@ -1071,7 +1067,6 @@ var findLeastNumOfUniqueInts = function (arr, k) {
             break;
         }
     }
-
     return uniqueCount;
 };
 //392. Is Subsequence
@@ -1085,7 +1080,6 @@ var isSubsequence = function (s, t) {
             t = t.slice(t.indexOf(s[i]) + 1);
         }
     }
-
     return true;
 };
 
