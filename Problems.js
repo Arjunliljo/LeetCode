@@ -1087,3 +1087,31 @@ var strStr = function (haystack, needle) {
     if (haystack.includes(needle)) return haystack.indexOf(needle);
     return -1;
 };
+// need to look
+//13. Roman to Integer
+var romanToInt = function (s) {
+
+    const MapToConvertRomanToInt = {
+        I: 1,
+        V: 5,
+        X: 10,
+        L: 50,
+        C: 100,
+        D: 500,
+        M: 1000
+    };
+
+    let output = 0;
+    for (let i = 0; i < s.length; i++) {
+        const currentValue = MapToConvertRomanToInt[s[i]];
+        const nextValue = MapToConvertRomanToInt[s[i + 1]];
+        if (nextValue && currentValue < nextValue) {
+            output -= currentValue;
+        } else {
+            output += currentValue;
+        }
+    }
+
+    return output;
+
+};
