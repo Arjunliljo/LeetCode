@@ -1115,3 +1115,26 @@ var romanToInt = function (s) {
     return output;
 
 };
+//20. Valid Parentheses
+//Gpt helped
+var isValid = function (s) {
+    const stack = [];
+    const parenthesesMap = {
+        '(': ')',
+        '[': ']',
+        '{': '}'
+    };
+
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === '(' || s[i] === '[' || s[i] === '{') {
+            stack.push(s[i]);
+        } else {
+            const top = stack.pop();
+            if (parenthesesMap[top] !== s[i]) {
+                return false;
+            }
+        }
+    }
+
+    return stack.length === 0;
+};
