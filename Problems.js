@@ -1119,6 +1119,7 @@ var romanToInt = function (s) {
 //Gpt helped
 var isValid = function (s) {
     const stack = [];
+
     const parenthesesMap = {
         '(': ')',
         '[': ']',
