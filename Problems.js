@@ -1139,3 +1139,46 @@ var isValid = function (s) {
 
     return stack.length === 0;
 };
+
+
+//73. Set Matrix Zeroes
+var setZeroes = function (matrix) {
+
+    if (matrix.length === 1 && matrix.flat().includes(0)) {
+        for (let i = 0; i < matrix[0].length; i++) {
+            matrix[0][i] = 0;
+        }
+        return matrix;
+    }
+
+    const makeZero = (row, coulm) => {
+
+        for (let i = 0; i < matrix.length; i++) {
+            matrix[i][coulm] = 0;
+        }
+
+        for (let i = 0; i < matrix[0].length; i++) {
+            matrix[row][i] = 0;
+        }
+
+    }
+
+    const indexes = [];
+
+    for (let i = 0; i < matrix.length; i++) {
+
+        for (let j = 0; j < matrix[i].length; j++) {
+
+            if (matrix[i][j] === 0) indexes.push([i, j]);
+
+        }
+
+    }
+
+    indexes.forEach(arr => {
+        makeZero(...arr);
+    })
+
+    return matrix;
+};
+
