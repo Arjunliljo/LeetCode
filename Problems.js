@@ -1140,7 +1140,7 @@ var isValid = function (s) {
     return stack.length === 0;
 };
 
-
+//Easy
 //73. Set Matrix Zeroes
 var setZeroes = function (matrix) {
 
