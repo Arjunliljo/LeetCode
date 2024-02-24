@@ -1162,7 +1162,6 @@ var setZeroes = function (matrix) {
         }
 
     }
-
     const indexes = [];
 
     for (let i = 0; i < matrix.length; i++) {
@@ -1170,15 +1169,11 @@ var setZeroes = function (matrix) {
         for (let j = 0; j < matrix[i].length; j++) {
 
             if (matrix[i][j] === 0) indexes.push([i, j]);
-
         }
-
     }
-
     indexes.forEach(arr => {
         makeZero(...arr);
     })
-
     return matrix;
 };
 
