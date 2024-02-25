@@ -1177,3 +1177,16 @@ var setZeroes = function (matrix) {
     return matrix;
 };
 
+//7. Reverse Integer
+var reverse = function (x) {
+
+    let ans = String(Math.abs(x));
+    ans = ans.split('').reverse().join('');
+
+    ans = Number(ans);
+
+    if (!(ans >= -Math.pow(2, 31) && ans <= Math.pow(2, 31) - 1)) return 0;
+
+    return x < 0 ? -ans : ans;
+};
+
