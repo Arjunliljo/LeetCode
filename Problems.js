@@ -1223,3 +1223,24 @@ var threeSum = function (nums) {
 
     return result;
 };
+
+//Easy
+// 1768. Merge Strings Alternately
+var mergeAlternately = function (word1, word2) {
+
+    let ans = '';
+
+    const length = word1.length > word2.length ? word1.length : word2.length;
+
+    let j = 0, k = 0;
+
+    for (let i = 0; i < length; i++) {
+
+        if (word1[j]) ans += word1[j++];
+
+        if (word2[k]) ans += word2[k++];
+
+    }
+
+    return ans;
+};
