@@ -1244,3 +1244,17 @@ var mergeAlternately = function (word1, word2) {
 
     return ans;
 };
+
+//Easy
+//1051. Height Checker
+var heightChecker = function (heights) {
+
+    const expected = heights.slice().sort((a, b) => a - b);
+
+    return expected.reduce((acc, val, i) => {
+
+        if (heights[i] !== val) return acc + 1;
+
+        return acc;
+    }, 0)
+};
