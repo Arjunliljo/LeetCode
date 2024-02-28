@@ -1,6 +1,4 @@
 
-//https://ejosue.com/about/
-
 //344.1 Reverse String
 var reverseString = function (s) {
 
