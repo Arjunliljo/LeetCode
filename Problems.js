@@ -1270,3 +1270,16 @@ var sumOfSquares = function (nums) {
     return sum;
 };
 
+//1299. Replace Elements with Greatest Element on Right Side
+var replaceElements = function (arr) {
+    let max = -1;
+
+    for (let i = arr.length - 1; i >= 0; i--) {
+        const current = arr[i];
+        arr[i] = max;
+        max = Math.max(max, current);
+    }
+
+    return arr;
+};
+
