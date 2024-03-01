@@ -1283,3 +1283,21 @@ var replaceElements = function (arr) {
     return arr;
 };
 
+//888. Fair Candy Swap
+var fairCandySwap = function (aliceSizes, bobSizes) {
+    const sumAlice = aliceSizes.reduce((acc, val) => acc + val, 0);
+    const sumBob = bobSizes.reduce((acc, val) => acc + val, 0);
+
+    const target = (sumAlice + sumBob) / 2;
+
+    const setBob = new Set(bobSizes);
+
+    for (const candy of aliceSizes) {
+        const targetCandyBob = target - (sumAlice - candy);
+        if (setBob.has(targetCandyBob)) {
+            return [candy, targetCandyBob];
+        }
+    }
+
+    return [];
+};
