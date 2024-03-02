@@ -1301,3 +1301,11 @@ var fairCandySwap = function (aliceSizes, bobSizes) {
 
     return [];
 };
+
+//557. Reverse Words in a String III
+var reverseWords = function (s) {
+
+    s = s.split(' ');
+
+    return s.map(word => word.split('').reverse().join('')).join(' ');
+};
