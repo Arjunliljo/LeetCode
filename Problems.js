@@ -1324,3 +1324,20 @@ var countKeyChanges = function (s) {
 
     return count;
 };
+
+//2810. Faulty Keyboard
+var finalString = function (s) {
+    s = s.split('');
+    let ans = '';
+    return s.reduce((acc, char, i) => {
+        if (char === 'i') {
+            acc = s.slice(0, i).reverse().join('');
+            s = [...acc.split(''), ...s.slice(i)];
+        }
+        else {
+            acc += char;
+        }
+        return acc;
+    }, '').replaceAll('i', '')
+};
+
