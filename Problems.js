@@ -1341,3 +1341,16 @@ var finalString = function (s) {
     }, '').replaceAll('i', '')
 };
 
+//2678. Number of Senior Citizens
+var countSeniors = function (details) {
+
+    return details.reduce((acc, str) => {
+
+        const age = str[11] + str[12];
+
+        if (Number(age) > 60) return acc + 1;
+
+        return acc;
+
+    }, 0)
+};
