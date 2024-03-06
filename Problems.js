@@ -1354,3 +1354,24 @@ var countSeniors = function (details) {
 
     }, 0)
 };
+
+//1935. Maximum Number of Words You Can Type
+var canBeTypedWords = function (text, brokenLetters) {
+
+    const broken = brokenLetters.split('')
+
+    const isBroken = (word) => {
+
+        return broken.some((val) => word.includes(val));
+    }
+
+    text = text.split(' ');
+
+    return text.reduce((acc, word) => {
+
+        if (!isBroken(word)) return acc + 1;
+
+        return acc;
+
+    }, 0)
+};
