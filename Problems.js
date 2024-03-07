@@ -1375,3 +1375,22 @@ var canBeTypedWords = function (text, brokenLetters) {
 
     }, 0)
 };
+
+//1002. Find Common Characters
+var commonChars = function (words) {
+
+    const letters = words[0].split('');
+
+    const check = (letter) => {
+        for (let i = 1; i < words.length; i++) {
+            const index = words[i].indexOf(letter);
+            if (index !== -1) {
+                words[i] = words[i].slice(0, index) + words[i].slice(index + 1);
+            } else {
+                return false;
+            }
+        }
+        return true;
+    };
+    return letters.filter(letter => check(letter));
+};
