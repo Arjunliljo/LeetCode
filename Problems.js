@@ -1394,3 +1394,17 @@ var commonChars = function (words) {
     };
     return letters.filter(letter => check(letter));
 };
+
+//2586. Count the Number of Vowel Strings in Range
+var vowelStrings = function (words, left, right) {
+
+    let count = 0;
+
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+    for (let i = left; i <= right; i++) {
+        if (vowels.includes(words[i][0]) && vowels.includes(words[i].at(-1))) count++;
+    }
+
+    return count;
+};
