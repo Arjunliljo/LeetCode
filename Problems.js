@@ -1408,3 +1408,20 @@ var vowelStrings = function (words, left, right) {
 
     return count;
 };
+
+//2496. Maximum Value of a String in an Array
+var maximumValue = function (strs) {
+
+    return strs.reduce((acc, str) => {
+
+        if (Number(str) == 0) return acc;
+
+        if (Number(str)) {
+            acc = acc < Number(str) ? Number(str) : acc;
+        }
+        else {
+            acc = acc < str.length ? str.length : acc;
+        }
+        return acc;
+    }, 0)
+};
