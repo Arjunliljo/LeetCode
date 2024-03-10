@@ -1425,3 +1425,34 @@ var maximumValue = function (strs) {
         return acc;
     }, 0)
 };
+
+//500. Keyboard Row
+var findWords = function (words) {
+
+    const first = 'qwertyuiop';
+    const second = '"asdfghjkl"';
+    const third = "zxcvbnm";
+
+    return words.reduce((acc, word) => {
+
+        let currWord = word;
+
+        word = [...new Set(word.toLowerCase().split(''))];
+
+        if (word.every(char => first.includes(char))) {
+            acc.push(currWord);
+            return acc;
+        }
+        else if (word.every(char => second.includes(char))) {
+            acc.push(currWord);
+            return acc;
+        }
+        else if (word.every(char => third.includes(char))) {
+            acc.push(currWord);
+            return acc;
+        }
+
+        return acc;
+    }, []);
+}
+console.log(findWords(["Hello", "Alaska", "Dad", "Peace"]));
