@@ -1430,7 +1430,7 @@ var maximumValue = function (strs) {
 var findWords = function (words) {
 
     const first = 'qwertyuiop';
-    const second = '"asdfghjkl"';
+    const second = 'asdfghjkl';
     const third = "zxcvbnm";
 
     return words.reduce((acc, word) => {
@@ -1451,8 +1451,28 @@ var findWords = function (words) {
             acc.push(currWord);
             return acc;
         }
-
         return acc;
     }, []);
 }
-console.log(findWords(["Hello", "Alaska", "Dad", "Peace"]));
+
+//2309. Greatest English Letter in Upper and Lower Case
+var greatestLetter = function (s) {
+
+    let greatest = '';
+
+    for (const char of s) {
+
+        const charCode = char.charCodeAt(0);
+
+        const isUpper = charCode >= 65 && charCode <= 90 ? true : false;
+
+        if (isUpper && s.includes(char.toLowerCase())) {
+            greatest = char > greatest ? char : greatest;
+        }
+        else if (!isUpper && s.includes(char.toUpperCase())) {
+            greatest = char.toUpperCase() > greatest ? char.toUpperCase() : greatest;
+        }
+    }
+
+    return greatest;
+};
