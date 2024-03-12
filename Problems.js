@@ -1476,3 +1476,20 @@ var greatestLetter = function (s) {
 
     return greatest;
 };
+
+//1507. Reformat Date
+var reformatDate = function (date) {
+
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+    date = date.split(' ').reverse();
+
+    let month = months.indexOf(date[1]) + 1;
+    month = month < 10 ? '0' + month : month;
+
+    let currDate = parseInt(date[2]);
+    currDate = currDate < 10 ? '0' + currDate : currDate;
+
+    return date[0] + '-' + month + '-' + currDate;
+
+};
