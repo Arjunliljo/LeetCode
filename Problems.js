@@ -1510,3 +1510,17 @@ var percentageLetter = function (s, letter) {
 
     return Math.floor((count / s.length) * 100);
 };
+
+//2185. Counting Words With a Given Prefix
+var prefixCount = function (words, pref) {
+
+    return words.filter(word => {
+
+        for (let i = 0; i < pref.length; i++) {
+
+            if (pref[i] !== word[i]) return false;
+        }
+
+        return true;
+    }).length;
+};
