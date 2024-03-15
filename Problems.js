@@ -1524,3 +1524,20 @@ var prefixCount = function (words, pref) {
         return true;
     }).length;
 };
+
+//1544. Make The String Great
+var makeGood = function (s) {
+    let stack = [];
+    for (let char of s) {
+        if (
+            stack.length > 0 &&
+            (char === stack[stack.length - 1].toLowerCase() && char.toUpperCase() === stack[stack.length - 1] ||
+                char === stack[stack.length - 1].toUpperCase() && char.toLowerCase() === stack[stack.length - 1])
+        ) {
+            stack.pop();
+        } else {
+            stack.push(char);
+        }
+    }
+    return stack.join('');
+};
