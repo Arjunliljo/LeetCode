@@ -1541,3 +1541,34 @@ var makeGood = function (s) {
     }
     return stack.join('');
 };
+
+//1636. Sort Array by Increasing Frequency
+var frequencySort = function (nums) {
+
+    const unique = [...new Set(nums)];
+
+    const arrMap = new Map();
+
+    const frequency = (val) => nums.reduce((acc, vals) => val === vals ? acc + 1 : acc, 0);
+
+    unique.forEach(val => {
+        arrMap.set(val, frequency(val));
+    })
+
+    const sorted = Array.from(arrMap).sort((a, b) => {
+
+        if (a[1] === b[1]) return b[0] - a[0];
+
+        return a[1] - b[1];
+    });
+
+    return sorted.reduce((acc, arr) => {
+
+        for (let i = 0; i < arr[1]; i++) {
+            acc.push(arr[0]);
+        }
+        return acc;
+    }, [])
+};
+
+console.log(frequencySort([2, 3, 1, 3, 2]));
