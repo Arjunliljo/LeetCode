@@ -1571,4 +1571,30 @@ var frequencySort = function (nums) {
     }, [])
 };
 
-console.log(frequencySort([2, 3, 1, 3, 2]));
+//2643. Row With Maximum Ones
+var rowAndMaximumOnes = function (mat) {
+
+    let maxCount = 0;
+
+    return mat.reduce((acc, arr, row) => {
+
+        const count = arr.reduce((acc2, val) => {
+
+            if (val === 1) return acc2 + 1;
+
+            return acc2;
+
+        }, 0);
+
+        if (count > maxCount) {
+
+            maxCount = count;
+
+            acc[0] = row;
+            acc[1] = maxCount;
+        }
+
+        return acc;
+
+    }, [0, 0])
+};
