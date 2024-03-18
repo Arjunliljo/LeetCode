@@ -1598,3 +1598,18 @@ var rowAndMaximumOnes = function (mat) {
 
     }, [0, 0])
 };
+
+//1207. Unique Number of Occurrences
+var uniqueOccurrences = function (arr) {
+
+    const count = (num) => arr.reduce((acc, val) => val === num ? acc + 1 : acc, 0);
+
+    const arrCopy = [...new Set(arr)];
+
+    const counts = arrCopy.map(val => count(val));
+
+    const frequecies = new Set(counts);
+
+    return frequecies.size === counts.length;
+
+};
