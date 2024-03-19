@@ -1613,3 +1613,16 @@ var uniqueOccurrences = function (arr) {
     return frequecies.size === counts.length;
 
 };
+//1323. Maximum 69 Number
+var maximum69Number = function (num) {
+
+    const arrNum = String(num).split('');
+
+    if (!arrNum.includes('6')) return num;
+
+    const firstSix = arrNum.indexOf('6');
+
+    arrNum[firstSix] = '9';
+
+    return Number(arrNum.join(''));
+};
