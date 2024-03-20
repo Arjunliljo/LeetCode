@@ -1626,3 +1626,26 @@ var maximum69Number = function (num) {
 
     return Number(arrNum.join(''));
 };
+
+var deleteGreatestValue = function (grid) {
+
+    let max = 0;
+
+    while (grid[0].length) {
+
+        max += grid.reduce((acc, arr) => {
+
+            const currMax = Math.max(...arr);
+
+            arr.splice(arr.indexOf(currMax), 1);
+
+            acc = currMax < acc ? acc : currMax;
+
+            return acc;
+
+        }, 0)
+    }
+
+    return max;
+};
+
