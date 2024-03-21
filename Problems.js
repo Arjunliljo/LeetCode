@@ -1627,6 +1627,7 @@ var maximum69Number = function (num) {
     return Number(arrNum.join(''));
 };
 
+//2500. Delete Greatest Value in Each Row
 var deleteGreatestValue = function (grid) {
 
     let max = 0;
@@ -1648,4 +1649,26 @@ var deleteGreatestValue = function (grid) {
 
     return max;
 };
+// different quesitions but same solution as above
+//2679. Sum in a Matrix
+var matrixSum = function (nums) {
 
+    let max = 0;
+
+    while (nums[0].length) {
+
+        max += nums.reduce((acc, arr) => {
+
+            const currMax = Math.max(...arr);
+
+            arr.splice(arr.indexOf(currMax), 1);
+
+            acc = currMax < acc ? acc : currMax;
+
+            return acc;
+
+        }, 0)
+    }
+
+    return max;
+};
