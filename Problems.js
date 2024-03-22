@@ -1649,6 +1649,7 @@ var deleteGreatestValue = function (grid) {
 
     return max;
 };
+
 // different quesitions but same solution as above
 //2679. Sum in a Matrix
 var matrixSum = function (nums) {
@@ -1671,4 +1672,21 @@ var matrixSum = function (nums) {
     }
 
     return max;
+};
+
+//2032. Two Out of Three
+var twoOutOfThree = function (nums1, nums2, nums3) {
+
+    const unique = [...new Set([...nums1, ...nums2, ...nums3])];
+
+    return unique.filter(val => {
+
+        if (nums1.includes(val) && nums2.includes(val)) return true;
+
+        else if (nums1.includes(val) && nums3.includes(val)) return true;
+
+        else if (nums2.includes(val) && nums3.includes(val)) return true;
+
+        return false;
+    })
 };
