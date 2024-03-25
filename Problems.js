@@ -1690,3 +1690,25 @@ var twoOutOfThree = function (nums1, nums2, nums3) {
         return false;
     })
 };
+
+//2363. Merge Similar Items
+var mergeSimilarItems = function (items1, items2) {
+
+    const grid = [...items1, ...items2];
+
+    const arrMap = new Map();
+
+    grid.forEach(arr => {
+
+        let val = 0;
+
+        if (arrMap.get(arr[0])) val = arrMap.get(arr[0]) + arr[1];
+
+        else val = arr[1];
+
+        arrMap.set(arr[0], val)
+    })
+
+    return Array.from(arrMap).sort((a, b) => a[0] - b[0]);
+};
+
