@@ -1712,3 +1712,16 @@ var mergeSimilarItems = function (items1, items2) {
     return Array.from(arrMap).sort((a, b) => a[0] - b[0]);
 };
 
+//1394. Find Lucky Integer in an Array
+var findLucky = function (arr) {
+
+    const frequency = (num) => arr.reduce((acc, val) => num === val ? acc + 1 : acc, 0);
+
+    return arr.reduce((acc, val) => {
+
+        if (frequency(val) === val) acc = val > acc ? val : acc;
+
+        return acc;
+
+    }, -1);
+};
