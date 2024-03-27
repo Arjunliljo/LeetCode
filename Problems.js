@@ -1725,3 +1725,25 @@ var findLucky = function (arr) {
 
     }, -1);
 };
+
+//1046. Last Stone Weight
+var lastStoneWeight = function (stones) {
+
+    while (stones.length > 1) {
+
+        const max = Math.max(...stones);
+
+        stones.splice(stones.indexOf(max), 1);
+
+        const secondMax = Math.max(...stones);
+
+        stones.splice(stones.indexOf(secondMax), 1);
+
+        if (max === secondMax) continue;
+
+        else
+            stones.push(max - secondMax);
+    }
+
+    return stones.length === 1 ? stones[0] : 0;
+};
