@@ -1747,3 +1747,15 @@ var lastStoneWeight = function (stones) {
 
     return stones.length === 1 ? stones[0] : 0;
 };
+
+//747. Largest Number At Least Twice of Others
+var dominantIndex = function (nums) {
+
+    const max = Math.max(...nums);
+
+    const index = nums.indexOf(max);
+
+    nums.splice(index, 1);
+
+    return Math.max(...nums) * 2 <= max ? index : -1;
+};
