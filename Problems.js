@@ -1759,3 +1759,24 @@ var dominantIndex = function (nums) {
 
     return Math.max(...nums) * 2 <= max ? index : -1;
 };
+
+// Given an integer n, return the nth digit of the infinite integer sequence [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...].
+
+var findNthDigit = function (n) {
+    let digitCount = 1;
+    let start = 1;
+
+    while (n > 9 * start * digitCount) {
+        n -= 9 * start * digitCount;
+        start *= 10;
+        digitCount++;
+    }
+
+
+    const num = start + Math.floor((n - 1) / digitCount);
+
+
+    const digitIndex = (n - 1) % digitCount;
+    return parseInt(num.toString()[digitIndex]);
+};
+
