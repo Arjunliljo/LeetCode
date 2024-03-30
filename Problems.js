@@ -1780,3 +1780,24 @@ var findNthDigit = function (n) {
     return parseInt(num.toString()[digitIndex]);
 };
 
+//1833. Maximum Ice Cream Bars
+var maxIceCream = function (costs, coins) {
+    if (coins <= 0) return 0;
+
+    if (coins < Math.min(...costs)) return 0;
+
+    costs.sort((a, b) => a - b);
+
+    let ans = 0;
+    let i = 0;
+
+    for (i = 0; i < costs.length; i++) {
+        if (ans + costs[i] <= coins) {
+            ans += costs[i];
+        } else {
+            break;
+        }
+    }
+
+    return i;
+};
