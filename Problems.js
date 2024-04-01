@@ -1811,3 +1811,22 @@ function largestOddNumber(num) {
     }
     return "";
 }
+
+//3079. Find the Sum of Encrypted Integers
+var sumOfEncryptedInt = function (nums) {
+
+    const engine = (val) => {
+        val = String(val).split('');
+        const max = Math.max(...val);
+        return new Array(val.length).fill(max).join('');
+    }
+
+    return nums.reduce((acc, val) => {
+
+        if (val <= 9) return acc + val;
+
+        return acc + Number(engine(val));
+
+    }, 0);
+
+};
