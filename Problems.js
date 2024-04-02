@@ -1830,3 +1830,13 @@ var sumOfEncryptedInt = function (nums) {
     }, 0);
 
 };
+//961. N-Repeated Element in Size 2N Array
+var repeatedNTimes = function (nums) {
+
+    const unique = [...new Set(nums)];
+
+    const count = (num) => nums.reduce((acc, val) => num === val ? acc + 1 : acc, 0);
+
+    return unique.find(num => count(num) === Math.round(nums.length / 2)) ?? -1;
+
+};
