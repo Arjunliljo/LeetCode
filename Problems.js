@@ -1840,3 +1840,20 @@ var repeatedNTimes = function (nums) {
     return unique.find(num => count(num) === Math.round(nums.length / 2)) ?? -1;
 
 };
+
+//2129. Capitalize the Title
+var capitalizeTitle = function (title) {
+
+    title = title.toLowerCase().split(' ');
+
+    const toUpper = (word) => {
+
+        if (word.length <= 2) return word;
+
+        return word.charAt(0).toUpperCase() + word.slice(1)
+    };
+
+    return title.reduce((acc, word) => acc + toUpper(word) + ' ', '').trim();
+
+};
+
