@@ -1857,3 +1857,11 @@ var capitalizeTitle = function (title) {
 
 };
 
+//2264. Largest 3-Same-Digit Number in String
+var largestGoodInteger = function (num) {
+    const isExist = (char) => num.includes(char + char + char);
+    return num.split('').reduce((acc, char) => {
+        if (isExist(char)) return char > acc ? char : acc;
+        return acc;
+    }, '').repeat(3);
+};
