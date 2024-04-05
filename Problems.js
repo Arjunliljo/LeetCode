@@ -1865,3 +1865,17 @@ var largestGoodInteger = function (num) {
         return acc;
     }, '').repeat(3);
 };
+
+// 1941. Check if All Characters Have Equal Number of Occurrences
+var areOccurrencesEqual = function (s) {
+
+    const count = (char) => {
+        let ans = 0;
+        for (let i = 0; i < s.length; i++) {
+            if (char === s[i]) ans++;
+        }
+        return ans;
+    }
+    const std = count(s[0]);
+    return s.split('').every(char => count(char) === std)
+};
