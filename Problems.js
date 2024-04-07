@@ -1879,3 +1879,28 @@ var areOccurrencesEqual = function (s) {
     const std = count(s[0]);
     return s.split('').every(char => count(char) === std)
 };
+
+//2085. Count Common Words With One Occurrence
+var countWords = function (words1, words2) {
+
+    const isTwice = (word, theArr) => {
+
+        let count = 0;
+
+        for (let i = 0; i < theArr.length; i++) {
+
+            if (theArr[i] === word) count++;
+
+            if (count >= 2) return true;
+        }
+
+        return false;
+    }
+
+    return words1.reduce((acc, word) => {
+
+        if (words2.includes(word) && !isTwice(word, words1) && !isTwice(word, words2)) return acc + 1;
+
+        return acc;
+    }, 0)
+};
