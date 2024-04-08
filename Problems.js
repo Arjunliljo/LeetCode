@@ -1904,3 +1904,20 @@ var countWords = function (words1, words2) {
         return acc;
     }, 0)
 };
+
+//2000. Reverse Prefix of Word
+var reversePrefix = function (word, ch) {
+
+    if (!word.includes(ch)) return word;
+
+    word = word.split('');
+
+    const index = word.indexOf(ch);
+
+    const first = word.slice(0, index + 1).reverse();
+
+    word.splice(0, index + 1);
+
+    return [...first, ...word].join('')
+
+};
