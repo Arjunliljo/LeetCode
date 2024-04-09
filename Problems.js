@@ -1921,3 +1921,20 @@ var reversePrefix = function (word, ch) {
     return [...first, ...word].join('')
 
 };
+
+//1704. Determine if String Halves Are Alike
+var halvesAreAlike = function (s) {
+
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+    const vowelCount = (arr) => arr.reduce((acc, char) => vowels.includes(char) ? acc + 1 : acc, 0);
+
+    s = s.toLowerCase().split('');
+
+    const a = s.slice(0, Math.floor(s.length / 2));
+    const b = s.slice(Math.floor(s.length / 2));
+
+    return vowelCount(a) === vowelCount(b)
+
+};
+
