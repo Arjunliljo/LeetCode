@@ -1938,3 +1938,10 @@ var halvesAreAlike = function (s) {
 
 };
 
+//2124. Check if All A's Appears Before All B's
+var checkString = function (s) {
+    s = s.split('');
+    const sorted = [...s].sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0));
+    return JSON.stringify(s) === JSON.stringify(sorted);
+
+};
