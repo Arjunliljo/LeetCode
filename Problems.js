@@ -1943,5 +1943,20 @@ var checkString = function (s) {
     s = s.split('');
     const sorted = [...s].sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0));
     return JSON.stringify(s) === JSON.stringify(sorted);
+};
 
+//1047. Remove All Adjacent Duplicates In String
+var removeDuplicates = function (s) {
+
+    let stack = [];
+
+    for (let char of s) {
+        if (stack.length > 0 && stack.at(-1) === char) {
+            stack.pop();
+        } else {
+            stack.push(char);
+        }
+    }
+
+    return stack.join('');
 };
