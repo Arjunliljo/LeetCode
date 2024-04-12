@@ -1960,3 +1960,11 @@ var removeDuplicates = function (s) {
 
     return stack.join('');
 };
+
+//1374. Generate a String With Characters That Have Odd Counts
+var generateTheString = function (n) {
+
+    if (n % 2 === 0) return 'a'.repeat(n - 1) + 'b';
+    return 'a'.repeat(n);
+
+};
