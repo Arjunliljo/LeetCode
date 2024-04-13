@@ -1963,8 +1963,12 @@ var removeDuplicates = function (s) {
 
 //1374. Generate a String With Characters That Have Odd Counts
 var generateTheString = function (n) {
-
     if (n % 2 === 0) return 'a'.repeat(n - 1) + 'b';
     return 'a'.repeat(n);
-
 };
+
+//387. First Unique Character in a String
+var firstUniqChar = function (s) {
+    return s.split('').findIndex(char => s.indexOf(char) === s.lastIndexOf(char));
+};
+
