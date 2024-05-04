@@ -129,7 +129,7 @@ var separateDigits = function (nums) {
     if (digit < 10) return digit;
 
     return splitNum(digit);
-  });
+  })
 
   return ans.flat();
 };
