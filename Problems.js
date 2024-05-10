@@ -54,6 +54,7 @@ var replaceDigits = function (s) {
   const shift = (char, num) =>
     String.fromCharCode(char.charCodeAt(0) + Number(num));
 
+  
   let result = "";
 
   for (let i = 0; i < s.length - 1; i += 2) {
