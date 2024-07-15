@@ -1761,6 +1761,7 @@ var removeDuplicates = function (s) {
 
   return stack.join("");
 };
+
 //1374. Generate a String With Characters That Have Odd Counts
 var generateTheString = function (n) {
   if (n % 2 === 0) return "a".repeat(n - 1) + "b";
@@ -1771,4 +1772,12 @@ var firstUniqChar = function (s) {
   return s
     .split("")
     .findIndex((char) => s.indexOf(char) === s.lastIndexOf(char));
+};
+
+//3131. Find the Integer Added to Array I
+var addedInteger = function(nums1, nums2) {
+  nums1.sort((a, b) => a - b);
+  nums2.sort((a, b) => a - b);
+
+  return nums2[0] - nums1[0];
 };
