@@ -1,4 +1,5 @@
 //344.1 Reverse String
+
 var reverseString = function (s) {
   // return s.reverse();
 
@@ -54,6 +55,7 @@ var replaceDigits = function (s) {
   const shift = (char, num) =>
     String.fromCharCode(char.charCodeAt(0) + Number(num));
 
+  
   let result = "";
 
   for (let i = 0; i < s.length - 1; i += 2) {
@@ -129,7 +131,7 @@ var separateDigits = function (nums) {
     if (digit < 10) return digit;
 
     return splitNum(digit);
-  });
+  })
 
   return ans.flat();
 };
