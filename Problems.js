@@ -55,7 +55,6 @@ var replaceDigits = function (s) {
   const shift = (char, num) =>
     String.fromCharCode(char.charCodeAt(0) + Number(num));
 
-  
   let result = "";
 
   for (let i = 0; i < s.length - 1; i += 2) {
@@ -131,7 +130,7 @@ var separateDigits = function (nums) {
     if (digit < 10) return digit;
 
     return splitNum(digit);
-  })
+  });
 
   return ans.flat();
 };
@@ -1777,9 +1776,29 @@ var firstUniqChar = function (s) {
 };
 
 //3131. Find the Integer Added to Array I
-var addedInteger = function(nums1, nums2) {
+var addedInteger = function (nums1, nums2) {
   nums1.sort((a, b) => a - b);
   nums2.sort((a, b) => a - b);
 
   return nums2[0] - nums1[0];
+};
+
+// 2956. Find Common Elements Between Two Arrays
+var findIntersectionValues = function (nums1, nums2) {
+  const ans1 = [];
+  const ans2 = [];
+
+  for (let i = 0; i < nums1.length; i++) {
+    if (nums2.includes(nums1[i])) {
+      ans1.push(i);
+    }
+  }
+
+  for (let i = 0; i < nums2.length; i++) {
+    if (nums1.includes(nums2[i])) {
+      ans2.push(i);
+    }
+  }
+
+  return [ans1.length, ans2.length];
 };
